@@ -1,0 +1,33 @@
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 3rem;
+	background-color: var(--color-primary);
+	color: var(--color-text);
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	cursor: pointer;
+}
+
+.links {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.link {
+	display: flex;
+	align-items: center;
+	gap: 0.3rem;
+}
+
+.icon {
+	font-size: 2rem;
+	cursor: pointer;
+	color: var(--color-text);
+}
