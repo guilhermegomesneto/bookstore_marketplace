@@ -24,10 +24,10 @@
 	display: flex;
 	align-items: center;
 	gap: 0.3rem;
+	cursor: pointer;
 }
 
 .icon {
 	font-size: 2rem;
-	cursor: pointer;
 	color: var(--color-text);
 }
