@@ -9,7 +9,7 @@ const Home = () => {
 	useEffect(() => {
 		const fetchBooks = async () => {
 			const booksData = await getBooks();
-			setBooks(booksData.slice(-12));
+			setBooks(booksData.slice(-10));
 		};
 
 		fetchBooks();
@@ -22,7 +22,7 @@ const Home = () => {
 				fontSize="2rem"
 				fontWeight="bold"
 			/>
-			<Text text="Explore our latest additions" fontSize="1.2rem" />
+			<Text text="Check our latest additions" fontSize="1.2rem" />
 			<div className={styles.booksBox}>
 				{books.map((book) => (
 					<div key={book.id} className={styles.bookCard}>

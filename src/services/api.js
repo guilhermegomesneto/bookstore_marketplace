@@ -8,3 +8,14 @@ export const getBooks = async () => {
 	const response = await api.get('/books');
 	return response.data;
 };
+
+export const searchBooks = async (page = 1, query = '') => {
+	const response = await api.get('/search', {
+		params: {
+			_page: page,
+			_limit: 10,
+			title: query,
+		},
+	});
+	return response.data;
+};
