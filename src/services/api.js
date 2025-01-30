@@ -19,3 +19,8 @@ export const searchBooks = async (page = 1, query = '') => {
 	});
 	return response.data;
 };
+
+export const getBookById = async (id) => {
+	const response = await api.get(`/books/${id}`);
+	return response.data;
+};

@@ -1,20 +1,39 @@
-import Logo from '../Common/Logo';
+import { useState, useEffect } from 'react';
 import Text from '../Common/Text';
+import { Link } from 'react-router-dom';
 import {
 	AiOutlineUser,
 	AiOutlineShoppingCart,
 	AiOutlineSearch,
+	AiOutlineSun,
+	AiOutlineMoon,
+	AiOutlineBook,
 } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
-
 import styles from './Navbar.module.scss';
 
 const Navbar = () => {
+	const [isNightMode, setIsNightMode] = useState(false);
+
+	useEffect(() => {
+		if (isNightMode) {
+			document.body.classList.add('night-mode');
+		} else {
+			document.body.classList.remove('night-mode');
+		}
+	}, [isNightMode]);
+
+	const toggleNightMode = () => {
+		setIsNightMode((prevMode) => !prevMode);
+	};
+
 	return (
 		<nav className={styles.navbar}>
 			<div>
 				<Link to="/" className={styles.logo}>
-					<Logo width="3rem" />
+					<AiOutlineBook
+						className={styles.icon}
+						style={{ fontSize: '2.75rem' }}
+					/>
 					<Text
 						text="Great Library of Old"
 						fontSize="1.4rem"
@@ -56,6 +75,13 @@ const Navbar = () => {
 							color="var(--color-text)"
 						/>
 					</Link>
+				</div>
+				<div onClick={toggleNightMode} className={styles.link}>
+					{isNightMode ? (
+						<AiOutlineMoon className={styles.icon} />
+					) : (
+						<AiOutlineSun className={styles.icon} />
+					)}
 				</div>
 			</div>
 		</nav>

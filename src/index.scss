@@ -1,21 +1,21 @@
 :root {
 	--color-primary: #897448;
-	--color-secondary: #2c0e37;
+	--color-secondary: #000000;
 	--color-tertiary: #e3e0cd;
-	--color-quaternary: #b392ac;
+	--color-quaternary: #111111;
 	--color-special: #0d0106;
 	--color-text: #000000;
 	--color-background: #f5f5f5;
 }
 
 .night-mode {
-	--color-primary: #e3e0cd;
-	--color-secondary: #b392ac;
-	--color-tertiary: #897448;
-	--color-quaternary: #2c0e37;
+	--color-primary: #000000;
+	--color-secondary: #e3e0cd;
+	--color-tertiary: #111111;
+	--color-quaternary: #897448;
 	--color-special: #0d0106;
 	--color-text: #f5f5f5;
-	--color-background: #000000;
+	--color-background: #333333;
 }
 
 html,

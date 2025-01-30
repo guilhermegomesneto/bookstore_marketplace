@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { searchBooks } from '../services/api.js';
+import { Link } from 'react-router-dom';
 import styles from './Search.module.scss';
 import Text from '../components/Common/Text';
 
@@ -65,23 +66,24 @@ const Search = () => {
 			<div className={styles.booksBox}>
 				{results.map((book) => (
 					<div key={book.id} className={styles.bookCard}>
-						<img
-							src={book.cover}
-							alt={book.title}
-							className={styles.bookImage}
-						/>
-						<Text
-							text={book.title}
-							fontSize="1.2rem"
-							fontWeight="bold"
-						/>
+						<Link to={`/book/${book.id}`}>
+							<img
+								src={book.cover}
+								alt={book.title}
+								className={styles.bookImage}
+							/>
+							<Text
+								text={book.title}
+								fontSize="1.2rem"
+								fontWeight="bold"
+							/>
+						</Link>
 						<Text
 							text={book.author}
 							fontSize="1rem"
 							fontStyle="italic"
 						/>
 						<Text text={book.genre} fontSize="1rem" />
-
 						<Text
 							text={`Price: $${book.price}`}
 							fontSize="1rem"
