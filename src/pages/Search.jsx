@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { searchBooks } from '../services/api.js';
 import { Link } from 'react-router-dom';
 import styles from './Search.module.scss';
 import Text from '../components/Common/Text';
+import { CartContext } from '../context/CartContext.jsx';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 
 const Search = () => {
 	const [query, setQuery] = useState('');
@@ -10,6 +12,7 @@ const Search = () => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [hasMoreResults, setHasMoreResults] = useState(true);
 	const resultsPerPage = 10;
+	const { addToCart } = useContext(CartContext);
 
 	useEffect(() => {
 		const fetchBooks = async () => {
@@ -88,6 +91,10 @@ const Search = () => {
 							text={`Price: $${book.price}`}
 							fontSize="1rem"
 							fontWeight="bold"
+						/>
+						<AiOutlineShoppingCart
+							className={styles.cartIcon}
+							onClick={() => addToCart(book)}
 						/>
 					</div>
 				))}

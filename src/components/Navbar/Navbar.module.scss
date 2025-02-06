@@ -31,3 +31,70 @@
 	font-size: 2rem;
 	color: var(--color-text);
 }
+
+.cartDropdown {
+	position: absolute;
+	top: 7.5%;
+	right: 0px;
+	background-color: var(--color-background);
+	border: var(--color-primary) 2px solid;
+	padding: 1rem;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+	width: 19.5%;
+	z-index: 10;
+}
+
+.cartItem {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 0.25rem;
+	padding: 0.5rem 0;
+	border-bottom: 1px solid var(--color-primary);
+}
+
+.cartQuantity {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 0.5rem;
+	margin-top: 0.5rem;
+}
+
+.quantityButton {
+	padding: 0.5rem 0.1rem;
+	background-color: var(--color-tertiary);
+	color: var(--color-text);
+	border: var(--color-primary) 2px solid;
+	cursor: pointer;
+	width: 100%;
+	text-align: center;
+}
+
+.quantityButton:hover {
+	background-color: var(--color-primary);
+}
+
+.totalPrice {
+	display: flex;
+	justify-content: center;
+	margin-top: 1rem;
+}
+
+.checkoutButton {
+	margin-top: 1rem;
+	padding: 0.5rem 1rem;
+	background-color: var(--color-tertiary);
+	color: var(--color-text);
+	border: var(--color-primary) 2px solid;
+	border-radius: 8px;
+	cursor: pointer;
+	width: 100%;
+	text-align: center;
+}
+
+.checkoutButton:hover {
+	background-color: var(--color-primary);
+}

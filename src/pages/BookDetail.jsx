@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { getBookById } from '../services/api';
 import styles from './BookDetail.module.scss';
 import Text from '../components/Common/Text';
+import { CartContext } from '../context/CartContext.jsx';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 
 const BookDetail = () => {
 	const { id } = useParams();
 	const [book, setBook] = useState(null);
+	const { addToCart } = useContext(CartContext);
 
 	useEffect(() => {
 		const fetchBook = async () => {
@@ -44,6 +47,10 @@ const BookDetail = () => {
 				text={book.desc}
 				fontSize="1rem"
 				className={styles.bookDesc}
+			/>
+			<AiOutlineShoppingCart
+				className={styles.cartIcon}
+				onClick={() => addToCart(book)}
 			/>
 		</div>
 	);
