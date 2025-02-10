@@ -68,6 +68,8 @@ const Cart = () => {
 				<div className={styles.checkoutSection}>
 					<Text
 						text={`Total: $${calculateTotalPrice().toFixed(2)}`}
+						fontSize="1.2rem"
+						fontWeight="bold"
 					/>
 					<Link to="/checkout">
 						<button className={styles.checkoutButton}>

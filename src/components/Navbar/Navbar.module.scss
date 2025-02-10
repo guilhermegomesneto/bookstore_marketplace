@@ -25,6 +25,11 @@
 	align-items: center;
 	gap: 0.3rem;
 	cursor: pointer;
+	transition: 0.2s;
+}
+
+.link:hover {
+	transform: scale(1.05);
 }
 
 .icon {
