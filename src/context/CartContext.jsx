@@ -6,27 +6,50 @@ export const CartProvider = ({ children }) => {
 	const [cart, setCart] = useState([]);
 
 	const addToCart = (book) => {
+		if (book.quantity === 0) {
+			alert('This book is out of stock.');
+			return;
+		}
+
 		const existingItem = cart.find((item) => item.id === book.id);
 
 		if (existingItem) {
-			setCart(
-				cart.map((item) =>
-					item.id === book.id
-						? { ...item, quantity: item.quantity + 1 }
-						: item
-				)
-			);
+			if (existingItem.quantity < existingItem.quantityAvailable) {
+				setCart(
+					cart.map((item) =>
+						item.id === book.id
+							? { ...item, quantity: item.quantity + 1 }
+							: item
+					)
+				);
+			} else {
+				alert('No more stock available for this book.');
+			}
 		} else {
-			setCart([...cart, { ...book, quantity: 1 }]);
+			setCart([
+				...cart,
+				{ ...book, quantity: 1, quantityAvailable: book.quantity },
+			]);
 		}
 	};
 
 	const increaseQuantity = (id) => {
-		setCart(
-			cart.map((item) =>
-				item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-			)
-		);
+		const item = cart.find((item) => item.id === id);
+
+		if (item.quantity < item.quantityAvailable) {
+			setCart(
+				cart.map((item) =>
+					item.id === id
+						? {
+								...item,
+								quantity: item.quantity + 1,
+						  }
+						: item
+				)
+			);
+		} else {
+			alert('No more stock available for this book.');
+		}
 	};
 
 	const decreaseQuantity = (id) => {

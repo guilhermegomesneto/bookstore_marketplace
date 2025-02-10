@@ -49,6 +49,11 @@ const Home = () => {
 						/>
 						<Text text={book.genre} fontSize="1rem" />
 						<Text
+							text={`${book.quantity} in stock`}
+							fontWeight="normal"
+							fontStyle="italic"
+						/>
+						<Text
 							text={`Price: $${book.price}`}
 							fontSize="1rem"
 							fontWeight="bold"

@@ -39,7 +39,7 @@ const BookDetail = () => {
 			<Text text={book.author} fontSize="1.2rem" fontStyle="italic" />
 			<Text text={book.genre} fontSize="1.2rem" />
 			<Text
-				text={`Price: $${book.price}`}
+				text={`Price: $${book.price} (${book.quantity} in stock)`}
 				fontSize="1.2rem"
 				fontWeight="bold"
 			/>
