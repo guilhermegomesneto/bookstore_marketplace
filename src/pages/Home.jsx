@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { getBooks } from '../services/api.js';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.scss';
 import Text from '../components/Common/Text';
+import { CartContext } from '../context/CartContext.jsx';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 
 const Home = () => {
 	const [books, setBooks] = useState([]);
+	const { addToCart } = useContext(CartContext);
 
 	useEffect(() => {
 		const fetchBooks = async () => {
@@ -46,9 +49,18 @@ const Home = () => {
 						/>
 						<Text text={book.genre} fontSize="1rem" />
 						<Text
+							text={`${book.quantity} in stock`}
+							fontWeight="normal"
+							fontStyle="italic"
+						/>
+						<Text
 							text={`Price: $${book.price}`}
 							fontSize="1rem"
 							fontWeight="bold"
+						/>
+						<AiOutlineShoppingCart
+							className={styles.cartIcon}
+							onClick={() => addToCart(book)}
 						/>
 					</div>
 				))}
