@@ -103,3 +103,39 @@
 .checkoutButton:hover {
 	background-color: var(--color-primary);
 }
+
+.cartIconWrapper {
+	position: relative;
+}
+
+.cartBadge {
+	position: absolute;
+	top: -10px;
+	right: -10px;
+	background-color: var(--color-tertiary);
+	color: var(--color-text);
+	padding: 0.25rem 0.5rem;
+	border: var(--color-text) 2px solid;
+	border-radius: 100%;
+	font-size: 0.8rem;
+	font-weight: bold;
+}
+
+.cartAnimate {
+	animation: cartPulse 1s ease;
+}
+
+@keyframes cartPulse {
+	0% {
+		transform: scale(1);
+		color: var(--color-text);
+	}
+	50% {
+		transform: scale(1.2);
+		color: var(--color-tertiary);
+	}
+	100% {
+		transform: scale(1);
+		color: var(--color-text);
+	}
+}

@@ -4,6 +4,7 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
 	const [cart, setCart] = useState([]);
+	const [isCartAnimated, setIsCartAnimated] = useState(false);
 
 	const addToCart = (book) => {
 		if (book.quantity === 0) {
@@ -22,6 +23,8 @@ export const CartProvider = ({ children }) => {
 							: item
 					)
 				);
+				setIsCartAnimated(true);
+				setTimeout(() => setIsCartAnimated(false), 1000);
 			} else {
 				alert('No more stock available for this book.');
 			}
@@ -30,6 +33,8 @@ export const CartProvider = ({ children }) => {
 				...cart,
 				{ ...book, quantity: 1, quantityAvailable: book.quantity },
 			]);
+			setIsCartAnimated(true);
+			setTimeout(() => setIsCartAnimated(false), 1000);
 		}
 	};
 
@@ -83,6 +88,7 @@ export const CartProvider = ({ children }) => {
 		<CartContext.Provider
 			value={{
 				cart,
+				isCartAnimated,
 				addToCart,
 				increaseQuantity,
 				decreaseQuantity,

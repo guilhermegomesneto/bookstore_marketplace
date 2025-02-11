@@ -16,8 +16,13 @@ import { CartContext } from '../../context/CartContext';
 
 const Navbar = () => {
 	const [isNightMode, setIsNightMode] = useState(false);
-	const { cart, calculateTotalPrice, increaseQuantity, decreaseQuantity } =
-		useContext(CartContext);
+	const {
+		cart,
+		isCartAnimated,
+		calculateTotalPrice,
+		increaseQuantity,
+		decreaseQuantity,
+	} = useContext(CartContext);
 	const [isCartOpen, setIsCartOpen] = useState(false);
 
 	useEffect(() => {
@@ -35,6 +40,11 @@ const Navbar = () => {
 	const toggleCart = () => {
 		setIsCartOpen(!isCartOpen);
 	};
+
+	const totalItemsInCart = cart.reduce(
+		(total, item) => total + item.quantity,
+		0
+	);
 
 	return (
 		<nav className={styles.navbar}>
@@ -76,11 +86,20 @@ const Navbar = () => {
 					</Link>
 				</div>
 				<div
-					className={styles.link}
+					className={`${styles.link} ${
+						isCartAnimated ? styles.cartAnimate : ''
+					}`}
 					onClick={toggleCart}
 					style={{ cursor: 'pointer' }}
 				>
-					<AiOutlineShoppingCart className={styles.icon} />
+					<div className={styles.cartIconWrapper}>
+						<AiOutlineShoppingCart className={styles.icon} />
+						{totalItemsInCart > 0 && (
+							<span className={styles.cartBadge}>
+								{totalItemsInCart}
+							</span>
+						)}
+					</div>
 					<Text
 						text="My Cart"
 						fontSize="1.2rem"
