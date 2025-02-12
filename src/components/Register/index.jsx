@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { registerUser } from '../../services/api';
+import styles from './Register.module.scss';
+import Text from '../Common/Text';
 
 const Register = () => {
 	const [formData, setFormData] = useState({ username: '', password: '' });
@@ -16,7 +18,14 @@ const Register = () => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit} className={styles.registerForm}>
+			<div className={styles.registerTextbox}>
+				<Text
+					text="New here? Register now!"
+					fontSize="1.4rem"
+					fontWeight="bold"
+				/>
+			</div>
 			<input
 				type="text"
 				placeholder="Username"

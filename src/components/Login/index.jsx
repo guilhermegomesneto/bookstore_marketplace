@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { loginUser } from '../../services/api';
+import styles from './Login.module.scss';
+import Text from '../Common/Text';
 
 const Login = () => {
 	const [formData, setFormData] = useState({ username: '', password: '' });
@@ -17,7 +19,14 @@ const Login = () => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit} className={styles.loginForm}>
+			<div className={styles.loginTextbox}>
+				<Text
+					text="Already have an account? Log in here!"
+					fontSize="1.4rem"
+					fontWeight="bold"
+				/>
+			</div>
 			<input
 				type="text"
 				placeholder="Username"
