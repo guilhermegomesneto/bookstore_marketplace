@@ -29,6 +29,9 @@ const Register = () => {
 			<input
 				type="text"
 				placeholder="Username"
+				required
+				minLength={3}
+				maxLength={20}
 				value={formData.username}
 				onChange={(e) =>
 					setFormData({ ...formData, username: e.target.value })
@@ -37,6 +40,9 @@ const Register = () => {
 			<input
 				type="password"
 				placeholder="Password"
+				required
+				minLength={3}
+				maxLength={20}
 				value={formData.password}
 				onChange={(e) =>
 					setFormData({ ...formData, password: e.target.value })

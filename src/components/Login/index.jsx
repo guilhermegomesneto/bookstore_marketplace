@@ -30,6 +30,7 @@ const Login = () => {
 			<input
 				type="text"
 				placeholder="Username"
+				required
 				value={formData.username}
 				onChange={(e) =>
 					setFormData({ ...formData, username: e.target.value })
@@ -38,6 +39,7 @@ const Login = () => {
 			<input
 				type="password"
 				placeholder="Password"
+				required
 				value={formData.password}
 				onChange={(e) =>
 					setFormData({ ...formData, password: e.target.value })
