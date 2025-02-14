@@ -1,0 +1,79 @@
+.registerForm {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	width: 25%;
+	padding: 2rem;
+	background-color: var(--color-tertiary);
+	border-radius: 8px;
+	border: var(--color-primary) 2px solid;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.registerTextbox {
+	margin-bottom: 0.25rem;
+}
+
+.inputGroup {
+	width: 100%;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.inputGroup label {
+	font-size: 1.1rem;
+	font-weight: bold;
+	margin-left: 0.1rem;
+	margin-bottom: 0.25rem;
+	color: var(--color-text);
+}
+
+.registerForm input {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0.5rem;
+	border-radius: 8px;
+	background-color: var(--color-background);
+	color: var(--color-text);
+	font-size: 1.1rem;
+	border: var(--color-primary) 1px solid;
+}
+
+.registerForm button {
+	width: 100%;
+	box-sizing: border-box;
+	margin-top: 0.5rem;
+	padding: 0.5rem;
+	background-color: var(--color-background);
+	color: var(--color-text);
+	border: var(--color-primary) 1px solid;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 1.1rem;
+	font-weight: bold;
+	transition: 0.3s;
+}
+
+.registerForm button:hover {
+	background-color: var(--color-primary);
+	border-color: var(--color-text);
+}
+
+.switchText {
+	font-size: 1.1rem;
+	color: var(--color-text);
+}
+
+.switchText span {
+	font-style: italic;
+	color: var(--color-text);
+	cursor: pointer;
+}
+
+.switchText span:hover {
+	color: blueviolet;
+}

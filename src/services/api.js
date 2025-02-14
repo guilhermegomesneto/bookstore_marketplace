@@ -4,6 +4,16 @@ const api = axios.create({
 	baseURL: 'http://localhost:3000',
 });
 
+export const registerUser = async (userData) => {
+	const response = await api.post('/register', userData);
+	return response.data;
+};
+
+export const loginUser = async (userData) => {
+	const response = await api.post('/login', userData);
+	return response.data;
+};
+
 export const getBooks = async () => {
 	const response = await api.get('/books');
 	return response.data;
