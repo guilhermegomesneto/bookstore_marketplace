@@ -1,5 +1,9 @@
 .userPage {
 	padding: 2rem;
+
+	@media (max-width: 768px) {
+		padding: 1rem;
+	}
 }
 
 .userPage p {
@@ -22,6 +26,11 @@
 	width: 35%;
 	margin: 1rem auto;
 	padding: 1rem 1.5rem;
+
+	@media (max-width: 768px) {
+		width: 90%;
+		padding: 1rem;
+	}
 }
 
 .userCard p {
@@ -54,4 +63,8 @@
 	align-items: center;
 	justify-content: center;
 	margin: 4% 0;
+
+	@media (max-width: 768px) {
+		margin: 2% 0;
+	}
 }

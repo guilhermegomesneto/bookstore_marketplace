@@ -15,7 +15,6 @@ const Login = ({ switchToRegister, onLoginSuccess }) => {
 			const response = await loginUser(formData);
 			localStorage.setItem('token', response.token);
 			localStorage.setItem('user', JSON.stringify(response.user));
-			alert('Login successful');
 			onLoginSuccess(response.user);
 		} catch (error) {
 			console.error(error);

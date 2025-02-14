@@ -1,6 +1,10 @@
 .home {
 	text-align: center;
 	padding: 2rem;
+
+	@media (max-width: 768px) {
+		padding: 1rem;
+	}
 }
 
 .home p {
@@ -12,6 +16,11 @@
 	flex-wrap: wrap;
 	gap: 2rem;
 	margin-top: 2rem;
+	justify-content: center;
+
+	@media (max-width: 768px) {
+		gap: 1rem;
+	}
 }
 
 .bookCard {
@@ -23,12 +32,20 @@
 	width: 21rem;
 	box-sizing: border-box;
 	margin: 0 auto;
+
+	@media (max-width: 768px) {
+		width: 100%;
+	}
 }
 
 .bookImage {
 	width: 10rem;
 	height: auto;
 	border-radius: 4px;
+
+	@media (max-width: 768px) {
+		width: 8rem;
+	}
 }
 
 .cartIcon {
@@ -37,8 +54,8 @@
 	margin: 0.1rem 0 0 0;
 	cursor: pointer;
 	transition: 0.2s;
-}
 
-.cartIcon:hover {
-	transform: scale(1.1);
+	&:hover {
+		transform: scale(1.1);
+	}
 }
