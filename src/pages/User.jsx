@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import Login from '../components/Login';
 import Register from '../components/Register';
 import styles from './User.module.scss';
-import Text from '../components/Common/Text';
 
 const User = () => {
+	const [isLogin, setIsLogin] = useState(true);
+
 	return (
 		<div className={styles.userPage}>
-			<div className={styles.loginRegister}>
-				<Register />
-				<Login />
-			</div>
+			{isLogin ? (
+				<Login switchToRegister={() => setIsLogin(false)} />
+			) : (
+				<Register switchToLogin={() => setIsLogin(true)} />
+			)}
 		</div>
 	);
 };

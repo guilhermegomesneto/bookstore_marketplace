@@ -3,8 +3,11 @@ import { loginUser } from '../../services/api';
 import styles from './Login.module.scss';
 import Text from '../Common/Text';
 
-const Login = () => {
-	const [formData, setFormData] = useState({ username: '', password: '' });
+const Login = ({ switchToRegister }) => {
+	const [formData, setFormData] = useState({
+		username: '',
+		password: '',
+	});
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -21,31 +24,45 @@ const Login = () => {
 	return (
 		<form onSubmit={handleSubmit} className={styles.loginForm}>
 			<div className={styles.loginTextbox}>
-				<Text
-					text="Already have an account? Log in here!"
-					fontSize="1.4rem"
-					fontWeight="bold"
+				<Text text="Login" fontSize="1.4rem" fontWeight="bold" />
+			</div>
+
+			<div className={styles.inputGroup}>
+				<label htmlFor="username">Username</label>
+				<input
+					type="text"
+					id="username"
+					placeholder="Enter your username"
+					required
+					value={formData.username}
+					onChange={(e) =>
+						setFormData({ ...formData, username: e.target.value })
+					}
 				/>
 			</div>
-			<input
-				type="text"
-				placeholder="Username"
-				required
-				value={formData.username}
-				onChange={(e) =>
-					setFormData({ ...formData, username: e.target.value })
-				}
-			/>
-			<input
-				type="password"
-				placeholder="Password"
-				required
-				value={formData.password}
-				onChange={(e) =>
-					setFormData({ ...formData, password: e.target.value })
-				}
-			/>
+
+			<div className={styles.inputGroup}>
+				<label htmlFor="password">Password</label>
+				<input
+					type="password"
+					id="password"
+					placeholder="Enter your password"
+					required
+					value={formData.password}
+					onChange={(e) =>
+						setFormData({ ...formData, password: e.target.value })
+					}
+				/>
+			</div>
+
 			<button type="submit">Login</button>
+
+			<div className={styles.switchText}>
+				<p>
+					New to the Library?{' '}
+					<span onClick={switchToRegister}>Register here!</span>
+				</p>
+			</div>
 		</form>
 	);
 };
