@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { registerUser } from '../../services/api';
 import styles from './Register.module.scss';
 import Text from '../Common/Text';
+import { toast } from 'react-toastify';
 
 const Register = ({ switchToLogin }) => {
 	const [formData, setFormData] = useState({
@@ -15,10 +16,28 @@ const Register = ({ switchToLogin }) => {
 		e.preventDefault();
 		try {
 			const response = await registerUser(formData);
-			alert(response.message);
+			toast.success(response.message, {
+				position: 'top-center',
+				autoClose: 3000,
+				closeOnClick: true,
+				pauseOnHover: true,
+				style: {
+					backgroundColor: 'var(--color-background)',
+					color: 'var(--color-text)',
+				},
+			});
 		} catch (error) {
 			console.error(error);
-			alert('Registration failed');
+			toast.error('Registration failed', {
+				position: 'top-center',
+				autoClose: 3000,
+				closeOnClick: true,
+				pauseOnHover: true,
+				style: {
+					backgroundColor: 'var(--color-background)',
+					color: 'var(--color-text)',
+				},
+			});
 		}
 	};
 
