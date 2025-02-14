@@ -3,7 +3,7 @@ import { loginUser } from '../../services/api';
 import styles from './Login.module.scss';
 import Text from '../Common/Text';
 
-const Login = ({ switchToRegister }) => {
+const Login = ({ switchToRegister, onLoginSuccess }) => {
 	const [formData, setFormData] = useState({
 		username: '',
 		password: '',
@@ -14,7 +14,9 @@ const Login = ({ switchToRegister }) => {
 		try {
 			const response = await loginUser(formData);
 			localStorage.setItem('token', response.token);
+			localStorage.setItem('user', JSON.stringify(response.user));
 			alert('Login successful');
+			onLoginSuccess(response.user);
 		} catch (error) {
 			console.error(error);
 			alert('Login failed');
