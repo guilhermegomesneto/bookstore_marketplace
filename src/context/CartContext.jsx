@@ -46,7 +46,7 @@ export const CartProvider = ({ children }) => {
 				setIsCartAnimated(true);
 				setTimeout(() => setIsCartAnimated(false), 1000);
 			} else {
-				toast.error('No more stock available for this book', {
+				toast.error('No more of this book available in the stock', {
 					position: 'top-center',
 					autoClose: 3000,
 					closeOnClick: true,
@@ -76,6 +76,16 @@ export const CartProvider = ({ children }) => {
 			setTimeout(() => setIsCartAnimated(false), 1000);
 		}
 	};
+
+	/* 
+	
+	
+	
+	
+	
+	
+	
+	*/
 
 	const increaseQuantity = (id) => {
 		const item = cart.find((item) => item.id === id);
