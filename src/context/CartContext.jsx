@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react';
+import { toast } from 'react-toastify';
 
 export const CartContext = createContext();
 
@@ -8,7 +9,16 @@ export const CartProvider = ({ children }) => {
 
 	const addToCart = (book) => {
 		if (book.quantity === 0) {
-			alert('This book is out of stock.');
+			toast.error('This book is out of stock', {
+				position: 'top-center',
+				autoClose: 3000,
+				closeOnClick: true,
+				pauseOnHover: true,
+				style: {
+					backgroundColor: 'var(--color-background)',
+					color: 'var(--color-text)',
+				},
+			});
 			return;
 		}
 
@@ -23,20 +33,59 @@ export const CartProvider = ({ children }) => {
 							: item
 					)
 				);
+				toast.info(`${book.title} added to cart!`, {
+					position: 'top-center',
+					autoClose: 2000,
+					closeOnClick: true,
+					pauseOnHover: true,
+					style: {
+						backgroundColor: 'var(--color-background)',
+						color: 'var(--color-text)',
+					},
+				});
 				setIsCartAnimated(true);
 				setTimeout(() => setIsCartAnimated(false), 1000);
 			} else {
-				alert('No more stock available for this book.');
+				toast.error('No more of this book available in the stock', {
+					position: 'top-center',
+					autoClose: 3000,
+					closeOnClick: true,
+					pauseOnHover: true,
+					style: {
+						backgroundColor: 'var(--color-background)',
+						color: 'var(--color-text)',
+					},
+				});
 			}
 		} else {
 			setCart([
 				...cart,
 				{ ...book, quantity: 1, quantityAvailable: book.quantity },
 			]);
+			toast.info(`${book.title} added to cart!`, {
+				position: 'top-center',
+				autoClose: 2000,
+				closeOnClick: true,
+				pauseOnHover: true,
+				style: {
+					backgroundColor: 'var(--color-background)',
+					color: 'var(--color-text)',
+				},
+			});
 			setIsCartAnimated(true);
 			setTimeout(() => setIsCartAnimated(false), 1000);
 		}
 	};
+
+	/* 
+	
+	
+	
+	
+	
+	
+	
+	*/
 
 	const increaseQuantity = (id) => {
 		const item = cart.find((item) => item.id === id);
@@ -53,7 +102,16 @@ export const CartProvider = ({ children }) => {
 				)
 			);
 		} else {
-			alert('No more stock available for this book.');
+			toast.error('No more stock available for this book', {
+				position: 'top-center',
+				autoClose: 3000,
+				closeOnClick: true,
+				pauseOnHover: true,
+				style: {
+					backgroundColor: 'var(--color-background)',
+					color: 'var(--color-text)',
+				},
+			});
 		}
 	};
 

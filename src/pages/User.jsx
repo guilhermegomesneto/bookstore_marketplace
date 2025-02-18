@@ -31,7 +31,7 @@ const User = () => {
 				<div className={styles.userInfo}>
 					<div className={styles.userPageTitle}>
 						<Text
-							text="My Account"
+							text="Your Account"
 							fontSize="2rem"
 							fontWeight="bold"
 						/>

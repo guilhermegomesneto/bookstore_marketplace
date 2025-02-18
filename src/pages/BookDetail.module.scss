@@ -7,6 +7,11 @@
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	margin: 2rem;
 	padding: 2rem;
+
+	@media (max-width: 768px) {
+		margin: 1rem;
+		padding: 1rem;
+	}
 }
 
 .bookImage {
@@ -14,10 +19,18 @@
 	height: auto;
 	border-radius: 4px;
 	padding: 0 0 1rem 0;
+
+	@media (max-width: 768px) {
+		width: 12rem;
+	}
 }
 
 .bookDetail p {
 	margin: 0.5rem 0 0 0;
+
+	@media (max-width: 768px) {
+		text-align: justify;
+	}
 }
 
 .cartIcon {
@@ -26,8 +39,8 @@
 	margin: 0.1rem 0 0 0;
 	cursor: pointer;
 	transition: 0.2s;
-}
 
-.cartIcon:hover {
-	transform: scale(1.1);
+	&:hover {
+		transform: scale(1.1);
+	}
 }

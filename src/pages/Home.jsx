@@ -5,6 +5,7 @@ import styles from './Home.module.scss';
 import Text from '../components/Common/Text';
 import { CartContext } from '../context/CartContext.jsx';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { toast } from 'react-toastify';
 
 const Home = () => {
 	const [books, setBooks] = useState([]);

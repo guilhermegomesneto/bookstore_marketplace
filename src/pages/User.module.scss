@@ -1,5 +1,9 @@
 .userPage {
 	padding: 2rem;
+
+	@media (max-width: 768px) {
+		padding: 1rem;
+	}
 }
 
 .userPage p {
@@ -21,7 +25,12 @@
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 	width: 35%;
 	margin: 1rem auto;
-	padding: 1rem;
+	padding: 1rem 1.5rem;
+
+	@media (max-width: 768px) {
+		width: 90%;
+		padding: 1rem;
+	}
 }
 
 .userCard p {
@@ -41,7 +50,7 @@
 	font-size: 1.1rem;
 	font-weight: bold;
 	transition: 0.3s;
-	margin: 0.25rem 0 0 0;
+	margin: 0.25rem 0;
 }
 
 .userCard button:hover {
@@ -54,4 +63,8 @@
 	align-items: center;
 	justify-content: center;
 	margin: 4% 0;
+
+	@media (max-width: 768px) {
+		margin: 2% 0;
+	}
 }

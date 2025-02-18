@@ -5,6 +5,11 @@
 	padding: 1rem 3rem;
 	background-color: var(--color-primary);
 	color: var(--color-text);
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		padding: 1rem 1.5rem;
+	}
 }
 
 .logo {
@@ -12,12 +17,22 @@
 	align-items: center;
 	gap: 0.5rem;
 	cursor: pointer;
+
+	@media (max-width: 768px) {
+		justify-content: center;
+		margin-bottom: 1rem;
+	}
 }
 
 .links {
 	display: flex;
 	align-items: center;
 	gap: 1rem;
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		width: 100%;
+	}
 }
 
 .link {
@@ -26,6 +41,11 @@
 	gap: 0.3rem;
 	cursor: pointer;
 	transition: 0.2s;
+
+	@media (max-width: 768px) {
+		justify-content: center;
+		width: 100%;
+	}
 }
 
 .link:hover {
@@ -49,6 +69,12 @@
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 	width: 19.5%;
 	z-index: 10;
+
+	@media (max-width: 768px) {
+		position: relative;
+		width: 100%;
+		margin-top: 1rem;
+	}
 }
 
 .cartItem {

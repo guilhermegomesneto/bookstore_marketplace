@@ -1,6 +1,15 @@
 .cartContainer {
 	padding: 2rem;
 	background-color: var(--color-background);
+
+	@media (max-width: 768px) {
+		padding: 1rem;
+	}
+}
+
+.cartPageTitle p {
+	text-align: center;
+	margin: 0 0 0.25rem 0;
 }
 
 .cartItems {
@@ -13,12 +22,21 @@
 	align-items: center;
 	border-bottom: 1px solid var(--color-tertiary);
 	padding: 1rem 0;
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		text-align: center;
+	}
 }
 
 .bookImage {
 	width: 100px;
 	height: auto;
 	margin-right: 1.5rem;
+
+	@media (max-width: 768px) {
+		margin-right: 0;
+	}
 }
 
 .itemDetails {
@@ -32,6 +50,10 @@
 	align-items: center;
 	gap: 0.5rem;
 	margin-top: 0.5rem;
+
+	@media (max-width: 768px) {
+		justify-content: center;
+	}
 }
 
 .quantityButton {
@@ -41,10 +63,10 @@
 	color: var(--color-text);
 	font-size: 1.2rem;
 	cursor: pointer;
-}
 
-.quantityButton:hover {
-	background-color: var(--color-primary);
+	&:hover {
+		background-color: var(--color-primary);
+	}
 }
 
 .emptyCart {
@@ -56,6 +78,7 @@
 
 .cartIcon {
 	color: var(--color-text);
+	font-size: 5rem;
 }
 
 .checkoutSection {
@@ -63,6 +86,11 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		gap: 1rem;
+	}
 }
 
 .checkoutButton {
@@ -74,9 +102,9 @@
 	font-size: 1.1rem;
 	font-weight: bold;
 	transition: 0.2s;
-}
 
-.checkoutButton:hover {
-	background-color: var(--color-primary);
-	transform: scale(1.05);
+	&:hover {
+		background-color: var(--color-primary);
+		transform: scale(1.05);
+	}
 }

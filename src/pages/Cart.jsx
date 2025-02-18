@@ -15,6 +15,11 @@ const Cart = () => {
 
 	return (
 		<div className={styles.cartContainer}>
+			<div className={styles.cartPageTitle}>
+				<Text text="Your Cart" fontSize="2rem" fontWeight="bold" />
+				<Text text="Check your cart items" fontSize="1.2rem" />
+			</div>
+
 			{cart.length > 0 ? (
 				<div className={styles.cartItems}>
 					{cart.map((item) => (

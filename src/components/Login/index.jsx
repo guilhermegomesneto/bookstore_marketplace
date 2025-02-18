@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { loginUser } from '../../services/api';
 import styles from './Login.module.scss';
 import Text from '../Common/Text';
+import { toast } from 'react-toastify';
 
 const Login = ({ switchToRegister, onLoginSuccess }) => {
 	const [formData, setFormData] = useState({
@@ -15,11 +16,19 @@ const Login = ({ switchToRegister, onLoginSuccess }) => {
 			const response = await loginUser(formData);
 			localStorage.setItem('token', response.token);
 			localStorage.setItem('user', JSON.stringify(response.user));
-			alert('Login successful');
 			onLoginSuccess(response.user);
 		} catch (error) {
 			console.error(error);
-			alert('Login failed');
+			toast.error('Login failed', {
+				position: 'top-center',
+				autoClose: 3000,
+				closeOnClick: true,
+				pauseOnHover: true,
+				style: {
+					backgroundColor: 'var(--color-background)',
+					color: 'var(--color-text)',
+				},
+			});
 		}
 	};
 
