@@ -68,7 +68,7 @@ const Cart = () => {
 						className={styles.cartIcon}
 						style={{ fontSize: '5rem' }}
 					/>
-					<Text text="Your cart is empty" fontSize="1.5rem" />
+					<Text text="Your cart is empty" fontSize="1.1rem" />
 				</div>
 			)}
 
