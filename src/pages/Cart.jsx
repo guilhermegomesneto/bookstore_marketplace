@@ -1,8 +1,9 @@
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import { Link } from 'react-router-dom';
 import styles from './Cart.module.scss';
 import Text from '../components/Common/Text';
+import Login from '../components/Login';
 import {
 	AiOutlinePlus,
 	AiOutlineMinus,
@@ -12,6 +13,8 @@ import {
 const Cart = () => {
 	const { cart, increaseQuantity, decreaseQuantity, calculateTotalPrice } =
 		useContext(CartContext);
+
+	const isLoggedIn = !!localStorage.getItem('token');
 
 	return (
 		<div className={styles.cartContainer}>
@@ -76,11 +79,19 @@ const Cart = () => {
 						fontSize="1.2rem"
 						fontWeight="bold"
 					/>
-					<Link to="/checkout">
-						<button className={styles.checkoutButton}>
-							Proceed to Checkout
-						</button>
-					</Link>
+					{isLoggedIn ? (
+						<Link>
+							<button className={styles.checkoutButton}>
+								Proceed to Checkout
+							</button>
+						</Link>
+					) : (
+						<Link to="/user">
+							<button className={styles.checkoutButton}>
+								Login to Checkout
+							</button>
+						</Link>
+					)}
 				</div>
 			)}
 		</div>
