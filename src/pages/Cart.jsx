@@ -13,6 +13,8 @@ const Cart = () => {
 	const { cart, increaseQuantity, decreaseQuantity, calculateTotalPrice } =
 		useContext(CartContext);
 
+	const isLoggedIn = !!localStorage.getItem('token');
+
 	return (
 		<div className={styles.cartContainer}>
 			<div className={styles.cartPageTitle}>
@@ -65,7 +67,7 @@ const Cart = () => {
 						className={styles.cartIcon}
 						style={{ fontSize: '5rem' }}
 					/>
-					<Text text="Your cart is empty" fontSize="1.5rem" />
+					<Text text="Your cart is empty" fontSize="1.1rem" />
 				</div>
 			)}
 
@@ -76,11 +78,19 @@ const Cart = () => {
 						fontSize="1.2rem"
 						fontWeight="bold"
 					/>
-					<Link to="/checkout">
-						<button className={styles.checkoutButton}>
-							Proceed to Checkout
-						</button>
-					</Link>
+					{isLoggedIn ? (
+						<Link>
+							<button className={styles.checkoutButton}>
+								Proceed to Checkout
+							</button>
+						</Link>
+					) : (
+						<Link to="/user">
+							<button className={styles.checkoutButton}>
+								Login to Checkout
+							</button>
+						</Link>
+					)}
 				</div>
 			)}
 		</div>
