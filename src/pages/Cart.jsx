@@ -1,9 +1,8 @@
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import { Link } from 'react-router-dom';
 import styles from './Cart.module.scss';
 import Text from '../components/Common/Text';
-import Login from '../components/Login';
 import {
 	AiOutlinePlus,
 	AiOutlineMinus,
