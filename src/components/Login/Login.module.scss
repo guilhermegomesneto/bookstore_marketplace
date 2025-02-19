@@ -61,11 +61,11 @@
 	font-size: 1.1rem;
 	font-weight: bold;
 	transition: 0.3s;
-}
 
-.loginForm button:hover {
-	background-color: var(--color-primary);
-	border-color: var(--color-text);
+	&:hover {
+		background-color: var(--color-primary);
+		border-color: var(--color-text);
+	}
 }
 
 .switchText {
@@ -77,8 +77,8 @@
 	font-style: italic;
 	color: var(--color-text);
 	cursor: pointer;
-}
 
-.switchText span:hover {
-	color: blueviolet;
+	&:hover {
+		color: blueviolet;
+	}
 }
