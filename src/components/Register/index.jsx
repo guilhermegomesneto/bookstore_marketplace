@@ -26,6 +26,7 @@ const Register = ({ switchToLogin }) => {
 					color: 'var(--color-text)',
 				},
 			});
+			switchToLogin();
 		} catch (error) {
 			console.error(error);
 			toast.error('Registration failed', {
